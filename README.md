@@ -1,6 +1,6 @@
 # Week 3 Formative Assignment 1 — Linux Systems Programming
 
-**Student:** Deng Mayen Deng Akol  
+**Student:** Deng Mayen Deng Akol
 
 ---
 
@@ -30,40 +30,35 @@ week3_formative/
 
 ### Project 1 — Investigating a Suspicious Binary
 
-A C program (`data_sync.c`) simulates a file synchronization tool. It was compiled and analyzed using `objdump` and `nm` without executing it.
+A C program (`data_sync.c`) simulates a file synchronization tool. Compiled and analyzed using `objdump` and `nm` without executing it.
 
 **Key findings:**
 - Entry point: `0x11a0` (`_start`)
 - 27 ELF sections including `.text`, `.rodata`, `.plt`, `.bss`
 - Imports: `fopen`, `fclose`, `fread`, `fwrite`, `stat`, `mkdir`, `fprintf`
 - Only dynamic dependency: `libc.so.6`
-- Conclusion: benign local file sync tool; no network or crypto indicators
+- Conclusion: benign local file sync tool — no network or crypto indicators
 
-**Compile command:**
+**Commands:**
 ```bash
 gcc -o data_sync data_sync.c
-```
-
-**Analysis commands:**
-```bash
-objdump -f data_sync              # Entry point
-objdump -h data_sync              # Sections
-objdump -d -j .plt data_sync      # Imported function stubs
-nm data_sync                      # Symbol table
-objdump -p data_sync | grep NEEDED  # Dynamic dependencies
+objdump -f data_sync > analysis_output.txt
+objdump -h data_sync >> analysis_output.txt
+nm data_sync >> analysis_output.txt
+objdump -p data_sync | grep NEEDED >> analysis_output.txt
 ```
 
 ---
 
 ### Project 2 — System Call Monitoring Tool
 
-A C program (`backup_tool.c`) performs file creation, log writing, and file reading. It was traced with `strace` to identify all system calls.
+A C program (`backup_tool.c`) performs file creation, log writing, and file reading. Traced with `strace` to identify all system calls.
 
 **Key syscalls identified:**
-- File: `openat`, `read`, `write`, `close`, `fstat`, `lseek`
+- File: `openat`, `read`, `write`, `close`, `newfstatat`, `lseek`
 - Process: `execve`, `getpid`, `brk`, `mmap`, `mprotect`, `getrandom`
 
-**Compile & run commands:**
+**Commands:**
 ```bash
 gcc -o backup_tool backup_tool.c
 strace -o strace_output.txt ./backup_tool
@@ -79,11 +74,11 @@ A CPython C extension (`statsmodule.c`) accelerates statistics computation using
 
 | Implementation | Time (s) |
 |---------------|----------|
-| Pure Python   | ~0.12    |
-| C Extension   | ~0.011   |
-| **Speedup**   | **~10×** |
+| Pure Python   | 0.0694   |
+| C Extension   | 0.0057   |
+| **Speedup**   | **12.1×**|
 
-**Build & run commands:**
+**Commands:**
 ```bash
 python3 setup.py build_ext --inplace
 python3 benchmark.py
@@ -95,13 +90,13 @@ python3 benchmark.py
 
 `monitor_service.c` is a background service that prints a status message every 5 seconds and responds to OS signals using `sigaction()`.
 
-| Signal   | Behavior |
-|----------|----------|
-| `SIGINT` | "Monitor Service shutting down safely." → `exit(0)` |
-| `SIGUSR1`| "System status requested by administrator." → continues |
-| `SIGTERM`| "Emergency shutdown signal received." → `exit(1)` |
+| Signal    | Behavior                                                |
+|-----------|---------------------------------------------------------|
+| `SIGINT`  | "Monitor Service shutting down safely." → `exit(0)`     |
+| `SIGUSR1` | "System status requested by administrator." → continues |
+| `SIGTERM` | "Emergency shutdown signal received." → `exit(1)`       |
 
-**Compile & run commands:**
+**Commands:**
 ```bash
 gcc -o monitor_service monitor_service.c
 ./monitor_service &
@@ -124,6 +119,6 @@ cd project2 && gcc -o backup_tool backup_tool.c && strace -o strace_output.txt .
 cd project3 && python3 setup.py build_ext --inplace && python3 benchmark.py
 
 # Project 4
-cd project4 && gcc -o monitor_service monitor_service.c && ./monitor_service
-# In another terminal: kill -SIGUSR1 <pid>
+cd project4 && gcc -o monitor_service monitor_service.c && ./monitor_service &
+# Then: kill -SIGUSR1 <pid>  /  kill -SIGTERM <pid>
 ```
