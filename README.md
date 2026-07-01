@@ -8,27 +8,20 @@
 
 ```
 week3_formative/
-├── project1/               # Investigating a Suspicious Binary
-│   ├── data_sync.c         # Simulated file sync tool
-│   ├── analysis_output.txt # objdump + nm command outputs
-│   └── forensic_report.md  # 1-page forensic analysis
-│
-├── project2/               # System Call Monitoring Tool
-│   ├── backup_tool.c       # File backup C program
-│   ├── strace_output.txt   # Full strace capture
-│   └── syscall_summary.md  # Syscall table + analysis
-│
-├── project3/               # Python Performance Extension
-│   ├── stats_python.py     # Pure Python statistics
-│   ├── statsmodule.c       # CPython C extension
-│   ├── setup.py            # Build configuration
-│   └── benchmark.py        # Head-to-head benchmark
-│
-├── project4/               # Signal-Based Server Controller
-│   ├── monitor_service.c   # Background monitor service
-│   └── signal_explanation.md # How signals are handled
-│
-└── README.md               # This file
+├── project1/
+│   ├── data_sync.c
+│   └── analysis_output.txt
+├── project2/
+│   ├── backup_tool.c
+│   └── strace_output.txt
+├── project3/
+│   ├── stats_python.py
+│   ├── statsmodule.c
+│   ├── setup.py
+│   └── benchmark.py
+├── project4/
+│   └── monitor_service.c
+└── README.md
 ```
 
 ---
