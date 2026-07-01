@@ -1,0 +1,86 @@
+execve("./backup_tool", ["./backup_tool"], 0x7ffd79f85480 /* 27 vars */) = 0
+brk(NULL)                               = 0x5917a77e3000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7fff31df7480) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7bf05baea000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=29432, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 29432, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7bf05bae2000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\t\\{\241H\256\312\201f\200\221\367\30\4px"..., 68, 896) = 68
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7bf05b800000
+mprotect(0x7bf05b828000, 2023424, PROT_NONE) = 0
+mmap(0x7bf05b828000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7bf05b828000
+mmap(0x7bf05b9bd000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7bf05b9bd000
+mmap(0x7bf05ba16000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7bf05ba16000
+mmap(0x7bf05ba1c000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7bf05ba1c000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7bf05badf000
+arch_prctl(ARCH_SET_FS, 0x7bf05badf740) = 0
+set_tid_address(0x7bf05badfa10)         = 1066
+set_robust_list(0x7bf05badfa20, 24)     = 0
+rseq(0x7bf05bae00e0, 0x20, 0, 0x53053053) = 0
+mprotect(0x7bf05ba16000, 16384, PROT_READ) = 0
+mprotect(0x59176988f000, 4096, PROT_READ) = 0
+mprotect(0x7bf05bb2c000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7bf05bae2000, 29432)           = 0
+getpid()                                = 1066
+newfstatat(1, "", {st_mode=S_IFCHR|0600, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+getrandom("\xad\x88\x11\x63\xef\x46\xff\x65", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x5917a77e3000
+brk(0x5917a7804000)                     = 0x5917a7804000
+write(1, "[backup_tool] Starting backup pr"..., 50) = 50
+openat(AT_FDCWD, "/tmp/backup_log.txt", O_WRONLY|O_CREAT|O_APPEND, 0666) = 3
+lseek(3, 0, SEEK_END)                   = 0
+openat(AT_FDCWD, "/etc/localtime", O_RDONLY|O_CLOEXEC) = 4
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=679, ...}, AT_EMPTY_PATH) = 0
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=679, ...}, AT_EMPTY_PATH) = 0
+read(4, "TZif2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096) = 679
+lseek(4, -413, SEEK_CUR)                = 266
+read(4, "TZif2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096) = 413
+close(4)                                = 0
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=0, ...}, AT_EMPTY_PATH) = 0
+write(3, "[Wed Jul  1 21:41:31 2026] backu"..., 47) = 47
+close(3)                                = 0
+openat(AT_FDCWD, "/tmp/backup_data.txt", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=0, ...}, AT_EMPTY_PATH) = 0
+write(3, "user_data=Alice,Bob,Charlie\nconf"..., 60) = 60
+close(3)                                = 0
+write(1, "[BACKUP] Backup file created: /t"..., 51) = 51
+openat(AT_FDCWD, "/tmp/backup_log.txt", O_WRONLY|O_CREAT|O_APPEND, 0666) = 3
+lseek(3, 0, SEEK_END)                   = 47
+newfstatat(AT_FDCWD, "/etc/localtime", {st_mode=S_IFREG|0644, st_size=679, ...}, 0) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=47, ...}, AT_EMPTY_PATH) = 0
+write(3, "[Wed Jul  1 21:41:31 2026] Backu"..., 60) = 60
+close(3)                                = 0
+openat(AT_FDCWD, "/tmp/backup_data.txt", O_RDONLY) = 3
+write(1, "[BACKUP] Reading backup contents"..., 34) = 34
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=60, ...}, AT_EMPTY_PATH) = 0
+read(3, "user_data=Alice,Bob,Charlie\nconf"..., 4096) = 60
+write(1, "  user_data=Alice,Bob,Charlie\n", 30) = 30
+write(1, "  config=production\n", 20)   = 20
+write(1, "  version=3.2.1\n", 16)       = 16
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/tmp/backup_log.txt", O_WRONLY|O_CREAT|O_APPEND, 0666) = 3
+lseek(3, 0, SEEK_END)                   = 107
+newfstatat(AT_FDCWD, "/etc/localtime", {st_mode=S_IFREG|0644, st_size=679, ...}, 0) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=107, ...}, AT_EMPTY_PATH) = 0
+write(3, "[Wed Jul  1 21:41:31 2026] Backu"..., 57) = 57
+close(3)                                = 0
+openat(AT_FDCWD, "/tmp/backup_log.txt", O_WRONLY|O_CREAT|O_APPEND, 0666) = 3
+lseek(3, 0, SEEK_END)                   = 164
+newfstatat(AT_FDCWD, "/etc/localtime", {st_mode=S_IFREG|0644, st_size=679, ...}, 0) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=164, ...}, AT_EMPTY_PATH) = 0
+write(3, "[Wed Jul  1 21:41:31 2026] backu"..., 48) = 48
+close(3)                                = 0
+write(1, "[backup_tool] Done.\n", 20)   = 20
+exit_group(0)                           = ?
++++ exited with 0 +++
