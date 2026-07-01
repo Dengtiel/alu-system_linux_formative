@@ -1,9 +1,6 @@
 # Week 3 Formative Assignment 1 — Linux Systems Programming
 
 **Student:** Deng Mayen Deng Akol  
-**Course:** Systems Programming  
-**Institution:** African Leadership University  
-**Due:** Friday, July 5, 2026
 
 ---
 
